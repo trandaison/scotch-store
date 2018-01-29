@@ -1,6 +1,14 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
+  <div>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <ul class="nav navbar-nav">
+          <li><router-link :to="{name: 'Home', params: {}}">Home</router-link></li>
+          <li><router-link :to="{name: 'Admin', params: {}}">Admin</router-link></li>
+          <li><router-link :to="{name: 'Cart', params: {}}">Cart</router-link></li>
+        </ul>
+      </div>
+    </nav>
     <router-view/>
   </div>
 </template>
@@ -12,12 +20,7 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.navbar {
+  border-radius: 0 !important;
 }
 </style>
