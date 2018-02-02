@@ -1,28 +1,42 @@
 <template>
-  <div>
-    <div class="title">
-      <h1>Admin New Product</h1>
-    </div>
-    <input type="text" placeholder="Name" v-model="name"
-      v-validate="'required'" name="name"
-      :class="{'form-control': true, 'error': errors.has('name')}" />
-    <span class="small text-danger" v-show="errors.has('name')">Name is required</span>
-  </div>
+  <product-form @save-product="addProduct" :model="model" :manufactures="manufactures"/>
+
 </template>
 
 <script type="text/javascript">
+import ProductForm from '@/components/products/ProductForm';
+
 export default {
   data() {
     return {
-      name: 'default',
+      model: {},
+      manufactures: [
+        {
+          id: 1,
+          name: 'SamSung',
+        },
+        {
+          id: 2,
+          name: 'Apple',
+        },
+        {
+          id: 3,
+          name: 'Huawei',
+        },
+        {
+          id: 4,
+          name: 'Philips',
+        },
+      ],
     };
+  },
+  methods: {
+    addProduct(model) {
+      console.log(model);
+    },
+  },
+  components: {
+    'product-form': ProductForm,
   },
 };
 </script>
-
-<style media="screen">
-.form-control.error {
-  border-color: #FF3333;
-  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(255, 71, 71, 0.6);
-}
-</style>
